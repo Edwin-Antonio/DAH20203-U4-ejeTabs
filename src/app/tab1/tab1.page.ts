@@ -12,8 +12,8 @@ export class Tab1Page implements OnInit{
 
   public myForm: FormGroup;
   public student: Estudiante;
-  constructor(private studentService: EstudianteService, private fb: FormBuilder) { }
-
+  public students: Estudiante[];
+  constructor(private studentService: EstudianteService, private fb: FormBuilder) {   }
 
   ngOnInit() {
     this.myForm = this.fb.group(
@@ -36,5 +36,6 @@ export class Tab1Page implements OnInit{
     };
     this.studentService.createStudent(this.student);
   }
+
 
 }
