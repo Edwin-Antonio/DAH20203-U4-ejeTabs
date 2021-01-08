@@ -1,4 +1,5 @@
 export class Estudiante {
+    [x: string]: string;
     name: string;
     controlnumber: string;
     curp: string;
