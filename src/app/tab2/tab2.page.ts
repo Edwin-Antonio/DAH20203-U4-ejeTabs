@@ -17,15 +17,15 @@ export class Tab2Page {
     this.service.getStudents().subscribe(data => {
     this.students = data.map(e => {
       return {
-        id: e.payload.doc.id, ...e.payload.doc.data
-        } as unknown as Estudiante;
+        id: e.payload.doc.id, ...e.payload.doc.data() as Estudiante
+        };
         });
      });
   }
 
   update(student: Estudiante, active: boolean){
     student.active = active;
-    this.service.updateStudent(student, student.id);
+    this.service.updateStudent(student, student.controlnumber);
   }
 
   detail(student: Estudiante){
