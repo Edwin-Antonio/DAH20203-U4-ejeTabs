@@ -3,6 +3,7 @@ import { ToastController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Estudiante } from '../models/estudiante';
 import { EstudianteService } from '../services/estudiante.service';
+import { Tab2Page } from '../tab2/tab2.page';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { EstudianteService } from '../services/estudiante.service';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-
+  students: Tab2Page;
   student: Estudiante;
   constructor(private service: EstudianteService, private actroute: ActivatedRoute, private route: Router, private toast: ToastController){
     this.actroute.queryParams.subscribe( params => {
@@ -33,7 +34,7 @@ export class DetailPage implements OnInit {
 
   async presentToast(){
     const t = await this.toast.create({
-      message: 'estudiante',
+      message: 'Student deleted',
       duration: 2000
     });
 
