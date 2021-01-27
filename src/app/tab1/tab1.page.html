@@ -16,16 +16,19 @@
           </div>
           <div padding>
             <ion-item>
-              <ion-label for="name" position="floating">Nombre</ion-label>
+              <ion-label for="name" position="floating">Name</ion-label>
               <ion-input formControlName='name' type='text'></ion-input>
             </ion-item>
             <ion-item>
+              <ion-label for="controlnumber" position="floating">Control Number</ion-label>
               <ion-input formControlName='controlnumber' type='text'></ion-input>
             </ion-item>
             <ion-item>
+              <ion-label for='curp' position='floating'>CURP</ion-label>
               <ion-input formControlName='curp' type='text'></ion-input>
             </ion-item>
             <ion-item>
+              <ion-label for='age' position='floating'>Age</ion-label>
               <ion-input formControlName='age' type='number'></ion-input>
             </ion-item>
             <ion-item>
@@ -35,7 +38,7 @@
           </div>
           <div padding>
             <ion-button size='large' type='button' (click)='create()' expand="block" [disabled]='!myForm.valid'>
-              Guardar
+              Save
             </ion-button>
           </div>
         </ion-col>

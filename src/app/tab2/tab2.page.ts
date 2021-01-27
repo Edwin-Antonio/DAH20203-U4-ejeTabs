@@ -14,24 +14,25 @@ export class Tab2Page {
   public id2: string;
   public obj: object;
   public students: Estudiante[];
-  constructor(private service: EstudianteService, private router: Router) {
+  public editingStudent: Estudiante;
+  constructor(private service: EstudianteService, private router: Router, private db: AngularFirestore) {
     this.service.getStudents().subscribe(data => {
       this.students = data.map(e => {
         return {
           id: e.payload.doc.id, ...e.payload.doc.data() as Estudiante,
-          id2: e.payload.doc.id
+          id2: e.payload.doc.data()
         };
       });
     });
-
   }
 
-  update(student: Estudiante, active: boolean){
+  update(student: Estudiante, active: boolean) {
     student.active = active;
     this.service.updateStudent(student, this.id2);
   }
 
   detail(student: Estudiante) {
+    this.editingStudent = student;
     const navext: NavigationExtras = {
       queryParams: {
         special: JSON.stringify(student)
